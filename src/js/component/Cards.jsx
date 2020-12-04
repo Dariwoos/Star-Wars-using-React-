@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import "../../styles/Cards.css";
+import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
 
 function Cards(props) {
+	const { store, actions } = useContext(Context);
+
 	return (
 		<div className="carde">
 			<img
@@ -27,9 +31,15 @@ function Cards(props) {
 					{props.subtitel}
 					{props.text3}
 				</p>
-				<a href="" className="btn btn-primary">
+				<Link
+					to={props.url}
+					onClick={() => actions.addUrl(props.info.replace("http", "https"))}
+					className="btn btn-primary">
 					Learn more!
-				</a>
+				</Link>
+				<button type="button" className="btn btn-warning">
+					❤
+				</button>
 			</div>
 		</div>
 	);
@@ -41,6 +51,8 @@ Cards.propTypes = {
 	subtitel3: PropTypes.string,
 	text1: PropTypes.string,
 	text2: PropTypes.string,
-	text3: PropTypes.string
+	text3: PropTypes.string,
+	url: PropTypes.string,
+	info: PropTypes.string
 };
 export default Cards;

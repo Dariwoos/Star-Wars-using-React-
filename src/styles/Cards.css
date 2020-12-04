@@ -1,9 +1,12 @@
 
 .carde{
    width: 200px;
-   padding: 3%;
+   padding: 1%;
    margin: 1%;
    border-radius: 10px;
    border-color: rgb(165, 155, 155);
    border:solid;
+}
+.btn{
+    margin: 5px;
 }

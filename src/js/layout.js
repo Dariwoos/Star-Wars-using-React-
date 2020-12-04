@@ -7,6 +7,7 @@ import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import LearnMore from "./component/LearnMore.jsx";
 
 //create your first component
 const Layout = () => {
@@ -19,6 +20,8 @@ const Layout = () => {
 			<BrowserRouter basename={basename}>
 				<Switch>
 					<Route exact path="/" component={Home} />
+					<Route exact path="/planets/:id" component={LearnMore} />
+					<Route exact path="/people/:id" component={LearnMore} />
 				</Switch>
 			</BrowserRouter>
 		</div>

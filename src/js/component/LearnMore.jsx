@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import PropTypes from "prop-types";
 
+import { Context } from "../store/appContext";
+
 function LearnMore(props) {
+	const { store, actions } = useContext(Context);
+	console.log(store.path);
+	useEffect(() => {
+		actions.getDetail(store.path);
+	}, []);
 	return (
 		<div className="conten">
 			<img

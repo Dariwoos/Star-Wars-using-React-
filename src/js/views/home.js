@@ -48,6 +48,8 @@ function Home() {
 							text1={characters.eye_color}
 							text2={characters.hair_color}
 							text3={characters.gender}
+							url={"/people/" + (index + 1)}
+							info={characters.url}
 						/>
 					);
 				})}
@@ -55,7 +57,16 @@ function Home() {
 			<h1>Planets</h1>
 			<div className="row seconCard">
 				{store.planets.map((planet, index) => {
-					return <Cards key={index} name={planet.name} text1={planet.population} text2={planet.terrain} />;
+					return (
+						<Cards
+							key={index}
+							name={planet.name}
+							text1={planet.population}
+							text2={planet.terrain}
+							subtitel={"Terrain"}
+							subtitel2={"Population"}
+						/>
+					);
 				})}
 			</div>
 		</div>
