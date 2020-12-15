@@ -3,7 +3,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			people: [],
 			planets: [],
-			path: ""
+			path: "",
+			favorites: []
 		},
 		actions: {
 			loadingData: str => {
@@ -17,14 +18,29 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(error => console.log(error));
 			},
 			addUrl: str => {
-				const state = getStore();
-				setStore({ ...state, path: str });
+				setStore({ path: str });
 			},
 			getDetail: url => {
 				fetch(url)
 					.then(res => res.json())
 					.then(data => console.log(data))
 					.catch(error => console.log(error));
+			},
+			likedItem: str => {
+				console.log("esoty");
+				const store = getStore();
+				console.log("2", str, store);
+
+				const validate = store.favorites.includes(str);
+				if (!validate) {
+					setStore({ favorites: [...store.favorites, str] });
+				}
+			},
+			deleteItem: id => {
+				const state = getStore();
+				const deleteditem = state.favorites;
+				deleteditem.splice(id, 1);
+				setStore({ favorites: deleteditem });
 			}
 		}
 	};

@@ -18,6 +18,7 @@ const Layout = () => {
 	return (
 		<div className="d-flex flex-column">
 			<BrowserRouter basename={basename}>
+				<Navbar />
 				<Switch>
 					<Route exact path="/" component={Home} />
 					<Route exact path="/planets/:id" component={LearnMore} />

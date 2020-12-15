@@ -1,11 +1,12 @@
 
 .carde{
-   width: 200px;
+   width: 240px;
    padding: 1%;
    margin: 1%;
    border-radius: 10px;
    border-color: rgb(165, 155, 155);
-   border:solid;
+   box-shadow:10px 10px 8px #888888;
+   background-color: wheat;
 }
 .btn{
     margin: 5px;

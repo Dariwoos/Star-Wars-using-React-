@@ -18,36 +18,19 @@ function Home() {
 
 	return (
 		<div className="wholeContain">
-			<div className="navLine">
-				<div className="navbar navbar-light bg-light">
-					<a className="navbar-brand" href="#">
-						Default
-					</a>
-					<button
-						className="btn btn-outline-secondary dropdown-toggle"
-						type="button"
-						data-toggle="dropdown"
-						aria-haspopup="true"
-						aria-expanded="false">
-						Dropdown
-					</button>
-					<div className="dropdown-menu">
-						<a className="dropdown-item" href="#">
-							Action
-						</a>
-					</div>
-				</div>
-			</div>
 			<h1>Characters</h1>
-			<div className="row container fluid firstCard">
+			<div className="row firstCard">
 				{store.people.map((characters, index) => {
 					return (
 						<Cards
 							key={index}
 							name={characters.name}
 							text1={characters.eye_color}
+							subtitel={"Eye color: "}
 							text2={characters.hair_color}
+							subtitel2={"Hair color:  "}
 							text3={characters.gender}
+							subtitel3={"Gender: "}
 							url={"/people/" + (index + 1)}
 							info={characters.url}
 						/>
@@ -63,8 +46,10 @@ function Home() {
 							name={planet.name}
 							text1={planet.population}
 							text2={planet.terrain}
-							subtitel={"Terrain"}
-							subtitel2={"Population"}
+							subtitel={"Terrain: "}
+							subtitel2={"Population: "}
+							url={"/planets/" + (index + 1)}
+							info={planet.url}
 						/>
 					);
 				})}

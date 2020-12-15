@@ -1,0 +1,29 @@
+.head{
+    display: flex;
+}
+.letters{
+   color: #626f00;
+    width: 332px;
+    margin-left: 20px;
+    height: 486px;
+    }
+.image{
+    margin: 10px;
+    width: 470px;
+    height: 360px;
+    margin-left: 150px;
+}
+.line{
+    background-color: red;
+    width:100%;
+    height: 5px;
+}
+.redInfo {
+    display: flex;
+    justify-content: space-around;
+    color: red;
+}
+.logo{
+    width: 80px;
+    height: 50px;
+}

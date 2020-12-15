@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import "../../styles/Cards.css";
 import { Link } from "react-router-dom";
@@ -7,6 +7,7 @@ import { Context } from "../store/appContext";
 function Cards(props) {
 	const { store, actions } = useContext(Context);
 
+	//console.log(actions);
 	return (
 		<div className="carde">
 			<img
@@ -15,29 +16,38 @@ function Cards(props) {
 				alt="..."
 			/>
 			<div className="card-bodys">
-				<h5 className="card-titl">
-					{props.subtitel}
-					{props.name}
-				</h5>
+				<h5 className="card-titl">{props.name}</h5>
 				<p className="card-text">
 					{props.subtitel}
 					{props.text1}
 				</p>
 				<p className="card-text">
-					{props.subtitel}
+					{props.subtitel2}
 					{props.text2}
 				</p>
 				<p className="card-text">
-					{props.subtitel}
+					{props.subtitel3}
 					{props.text3}
 				</p>
+
 				<Link
-					to={props.url}
-					onClick={() => actions.addUrl(props.info.replace("http", "https"))}
-					className="btn btn-primary">
-					Learn more!
+					className="btn btn-info"
+					to={{
+						pathname: props.url,
+						state: {
+							iteam: props
+						}
+					}}>
+					{" "}
+					LEARN
 				</Link>
-				<button type="button" className="btn btn-warning">
+				<button
+					type="button"
+					className="btn btn-warning"
+					onClick={() => {
+						console.log("props", props.name);
+						actions.likedItem(props.name);
+					}}>
 					❤
 				</button>
 			</div>
